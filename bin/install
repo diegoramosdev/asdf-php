@@ -115,6 +115,7 @@ construct_configure_options() {
   # many options included below are not applicable to newer PHP versions
   # including these will trigger a build warning, but will not b
   global_config="--prefix=$install_path \
+    --without-pcre-jit \
     --enable-bcmath \
     --enable-calendar \
     --enable-dba \
@@ -151,8 +152,7 @@ construct_configure_options() {
     --with-xmlrpc \
     --with-zip \
     --with-zlib \
-    --without-snmp \
-    --without-pcre-jit"
+    --without-snmp"
 
   if [ "$PHP_CONFIGURE_OPTIONS" = "" ]; then
     local configure_options="$(os_based_configure_options) $global_config"
